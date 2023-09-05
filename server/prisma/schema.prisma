@@ -1,0 +1,17 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db{
+    provider = "mysql"
+    url = env("DATABASE_URL")
+}
+
+model Dishes {
+    id String @unique @default(uuid())
+    dish_name String  
+    dish_category String
+    dish_prices Decimal 
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
